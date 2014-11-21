@@ -65,9 +65,15 @@ var loadPagesInfo = function(pages){
     var $page = $(tmpl).clone();
     FB.api(item.id, function(response){
       // 塞 name, about, like 數到 html 裡。
-      FB.api(/*輸入圖片連結*/, function(response){
+      $page.find('title a').text(response.name).attr('href',response.link);
+      $page.find('about').text(response.about);
+      $page.find('likes').text(response.likes);
+
+      FB.api(item.id+'/picture?type=large', function(response){
         // 塞資料到 html 中
+        $page.find('.thumbnail img').attr('src', respones.data.url)
         counter++;
+        $page.appendTo(current);
         // 塞完資料以後處理一下斷行
         if(counter===pages.length){
           // 利用 .current div:nth-child(3n)，讓每三個page 斷行
