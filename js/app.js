@@ -49,9 +49,9 @@ window.fbAsyncInit = function() {
     $('#moreBtn').click(function(e){
       $.getJSON( $(this).data('next'), function(response){
         //更新列表資料
-        loadPagesInfo
+        loadPagesInfo(response.data);
       })
-      e.preventDefault(response.data);
+      e.preventDefault();
     });
 };
 
