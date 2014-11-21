@@ -20,7 +20,7 @@ window.fbAsyncInit = function() {
       $($listRoot).empty();
       $('#moreBtn').addClass('hide');
       // 臉書登入SDK
-      FB.login(function(.se) {
+      FB.login(function(response) {
         if(response.authResponse) {
             //讀取個人信息
                    /*填入我們要的request*/
